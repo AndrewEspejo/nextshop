@@ -5,11 +5,27 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:css": "postcss styles/tailwind.css -o styles/main.css",
+    "build:watch": "postcss src/styles/tailwind.css -o src/styles/main.css --watch",
+    "prod:build": "NODE_ENV=production yarn run build:css && yarn run build"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "autoprefixer": "^10.0.4",
     "next": "10.0.3",
+    "postcss": "^8.1.14",
+    "postcss-cli": "^8.3.0",
+    "postcss-preset-env": "^6.7.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.1"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^13.0.0",
+    "postcss-loader": "^4.1.0",
+    "sugarss": "^3.0.3"
   }
 }
